@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Megat Irfan Zackry — Software Engineer</title>
-<meta name="description" content="Portfolio of Megat Irfan Zackry — Software Engineer, System Architect, Automation Developer." />
+<title>Megat Irfan Zackry | Software Engineer</title>
+<meta name="description" content="Portfolio of Megat Irfan Zackry | Software Engineer, System Architect, Automation Developer." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,8 +56,25 @@
   .hero-inner{
     display:flex;
     gap:1rem;
-    align-items:stretch;
+    align-items:center;
     max-width:760px;
+  }
+
+  .headshot{
+    flex:0 0 auto;
+    width:clamp(64px, 20vw, 96px);
+    height:clamp(64px, 20vw, 96px);
+    border-radius:50%;
+    overflow:hidden;
+    border:2px solid var(--accent-soft);
+    box-shadow:0 2px 6px rgba(20,20,15,.08);
+    background:var(--surface-2);
+  }
+  .headshot img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
   }
   .hero-text{
     display:flex;
@@ -167,6 +184,105 @@
     text-overflow:ellipsis;
   }
 
+  .academic{ margin:0 auto; max-width:1180px; padding:0 0 3.5rem; }
+
+  .academic-track{
+    position:relative;
+    padding:1.5rem 0 .5rem;
+  }
+  .academic-path{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    overflow:visible;
+    z-index:0;
+  }
+  .academic-path .path-bg{
+    fill:none;
+    stroke:var(--border);
+    stroke-width:3;
+    stroke-linecap:round;
+  }
+  .academic-path .path-progress{
+    fill:none;
+    stroke:var(--accent);
+    stroke-width:3;
+    stroke-linecap:round;
+  }
+  .academic-dot{
+    fill:var(--accent);
+    filter:drop-shadow(0 2px 5px rgba(15,107,82,.4));
+  }
+
+  .academic-list{
+    position:relative;
+    list-style:none;
+    margin:0;
+    padding:0;
+    z-index:1;
+  }
+  .academic-item{
+    position:relative;
+    display:flex;
+    align-items:center;
+    min-height:230px;
+  }
+  .academic-item[data-side="left"]{ justify-content:flex-start; }
+  .academic-item[data-side="right"]{ justify-content:flex-end; }
+
+  .academic-card{
+    width:min(68%, 300px);
+    background:#FFFFFF;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:1.1rem 1.2rem;
+    box-shadow:0 1px 2px rgba(20,20,15,.04);
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity .65s cubic-bezier(.22,.7,.3,1), transform .65s cubic-bezier(.22,.7,.3,1);
+  }
+  .academic-item.in-view .academic-card{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .academic-year{
+    display:inline-block;
+    font-family:var(--display);
+    font-size:.78rem;
+    font-weight:700;
+    color:var(--accent);
+    background:var(--accent-soft);
+    padding:.15rem .55rem;
+    border-radius:5px;
+    margin-bottom:.5rem;
+    letter-spacing:.02em;
+  }
+  .academic-degree{
+    margin:0 0 .3rem;
+    font-family:var(--display);
+    font-size:.98rem;
+    font-weight:600;
+    color:var(--text);
+    line-height:1.35;
+  }
+  .academic-meta{
+    margin:0;
+    font-size:.82rem;
+    color:var(--text-muted);
+  }
+  .academic-meta strong{ color:var(--text); }
+
+  @media (min-width:640px){
+    .academic-item{ min-height:260px; }
+    .academic-card{ width:min(54%, 320px); padding:1.3rem 1.4rem; }
+    .academic-degree{ font-size:1.05rem; }
+  }
+  @media (min-width:1024px){
+    .academic-item{ min-height:290px; }
+    .academic-card{ width:min(45%, 360px); }
+  }
+
   .site-footer{
     background:var(--surface);
     border-top:1px solid var(--border);
@@ -226,6 +342,7 @@
 
   @media (min-width:640px){
     .hero{ padding:4rem 0 3.25rem; }
+    .headshot{ width:112px; height:112px; }
     .skill-card{ width:172px; height:76px; }
     .skill-card .icon-chip{ width:40px; height:40px; }
     .skill-card .icon-chip img{ width:26px; height:26px; }
@@ -233,6 +350,7 @@
   }
 
   @media (min-width:1024px){
+    .headshot{ width:128px; height:128px; }
     .skill-card{ width:196px; height:84px; }
     .skill-card .icon-chip{ width:46px; height:46px; }
     .skill-card .icon-chip img{ width:30px; height:30px; }
@@ -241,6 +359,8 @@
   @media (prefers-reduced-motion:reduce){
     .marquee-track{ animation:none; }
     .cursor{ animation:none; opacity:1; }
+    .academic-card{ opacity:1; transform:none; transition:none; }
+    .academic-dot{ display:none; }
   }
 </style>
 </head>
@@ -249,6 +369,9 @@
 <main>
   <header class="hero">
     <div class="hero-inner">
+      <div class="headshot">
+        <img src="assets/headshot.png" alt="Portrait of Megat Irfan Zackry" width="140" height="140" loading="eager" />
+      </div>
       <div class="hero-text">
         <h1 class="line intro">Welcome recruiters,</h1>
         <h1 class="line name">My name is Megat Irfan Zackry Bin Ismail</h1>
@@ -264,6 +387,49 @@
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+  </section>
+
+  <section class="academic">
+    <h2 class="section-title"><span class="tick" aria-hidden="true"></span>Academic Background</h2>
+
+    <div class="academic-track" id="academicTrack">
+      <svg class="academic-path" viewBox="0 0 300 1000" preserveAspectRatio="none" aria-hidden="true">
+        <path class="path-bg" d="M150,0 C150,62.5 260,62.5 260,125 C260,250 40,250 40,375 C40,500 260,500 260,625 C260,750 40,750 40,875 C40,937.5 150,937.5 150,1000" />
+        <path class="path-progress" id="academicProgress" d="M150,0 C150,62.5 260,62.5 260,125 C260,250 40,250 40,375 C40,500 260,500 260,625 C260,750 40,750 40,875 C40,937.5 150,937.5 150,1000" />
+        <circle class="academic-dot" id="academicDot" r="8" cx="150" cy="0"></circle>
+      </svg>
+
+      <ul class="academic-list">
+        <li class="academic-item" data-side="left">
+          <div class="academic-card">
+            <span class="academic-year">2018</span>
+            <h3 class="academic-degree">Sijil Pelajaran Malaysia (SPM)</h3>
+            <p class="academic-meta"><strong>8A</strong> · MRSM Tun Ghazali Shafie</p>
+          </div>
+        </li>
+        <li class="academic-item" data-side="right">
+          <div class="academic-card">
+            <span class="academic-year">2020</span>
+            <h3 class="academic-degree">UTM Foundation</h3>
+            <p class="academic-meta"><strong>3.96</strong> CGPA · Kolej Mara Seremban</p>
+          </div>
+        </li>
+        <li class="academic-item" data-side="left">
+          <div class="academic-card">
+            <span class="academic-year">2025</span>
+            <h3 class="academic-degree">Bachelor Degree in Computer Science (Software Engineering)</h3>
+            <p class="academic-meta"><strong>3.58</strong> CGPA · Universiti Teknologi Malaysia</p>
+          </div>
+        </li>
+        <li class="academic-item" data-side="right">
+          <div class="academic-card">
+            <span class="academic-year">Now</span>
+            <h3 class="academic-degree">Master of Philosophy</h3>
+            <p class="academic-meta">Universiti Teknologi Malaysia</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 </main>
@@ -412,6 +578,62 @@
       const attrs = isMail ? '' : ' target="_blank" rel="noopener noreferrer"';
       return `<li><a href="${l.href}" aria-label="${l.label}"${attrs}>${icons[l.icon]}</a></li>`;
     }).join('');
+  })();
+
+  (function(){
+    const track = document.getElementById('academicTrack');
+    if (!track) return;
+
+    const bgPath = track.querySelector('.path-bg');
+    const progressPath = document.getElementById('academicProgress');
+    const dot = document.getElementById('academicDot');
+    const items = document.querySelectorAll('.academic-item');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+      items.forEach(i => i.classList.add('in-view'));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+      });
+    }, { threshold: 0.3, rootMargin: '-8% 0px -8% 0px' });
+    items.forEach(item => io.observe(item));
+
+    const totalLength = bgPath.getTotalLength();
+    progressPath.style.strokeDasharray = String(totalLength);
+    progressPath.style.strokeDashoffset = String(totalLength);
+
+    let ticking = false;
+
+    function updateDot(){
+      const rect = track.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const start = vh * 0.85;
+      const end = -rect.height + vh * 0.15;
+      const span = start - end;
+      let progress = span !== 0 ? (start - rect.top) / span : 0;
+      progress = Math.max(0, Math.min(1, progress));
+
+      const pt = bgPath.getPointAtLength(progress * totalLength);
+      dot.setAttribute('cx', pt.x);
+      dot.setAttribute('cy', pt.y);
+      progressPath.style.strokeDashoffset = String(totalLength * (1 - progress));
+      ticking = false;
+    }
+
+    function onScroll(){
+      if (!ticking) {
+        requestAnimationFrame(updateDot);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive:true });
+    window.addEventListener('resize', onScroll);
+    updateDot();
   })();
 </script>
 
