@@ -178,7 +178,7 @@ h2.role{
   min-height:2.3em;
 }
 .role-word{
-  background:linear-gradient(120deg, var(--accent), #2FA383);
+  background:linear-gradient(120deg, var(--accent), #2f6da3);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
